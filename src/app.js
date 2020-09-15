@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const productRoutes = require("./api/routes/products");
 const orderRoutes = require("./api/routes/orders");
 const userRoutes = require('./api/routes/user');
+const agencyRoute = require('./api/routes/agency');
 
 
 mongoose.connect("mongodb+srv://node-rest-full:TiB4hFhIoOVfdL0d@cluster0.yee0r.mongodb.net" +"/node-backend?retryWrites=true&w=majority",{useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true });
@@ -33,6 +34,7 @@ app.use((req, res, next) => {
 
 // Routes which should handle requests
 app.use("/products", productRoutes);
+app.use("/agency", agencyRoute);
 app.use("/orders", orderRoutes);
 app.use("/auth", userRoutes);
 
